@@ -14,7 +14,7 @@ if __name__ == '__main__':
     print(f'\n******** Made by {__author__} ********\n')
     print('**** Getting 1000 the richest addresses ****')
     parse_bitcoin_addresses(100)
-    final_bitcoin_list = list()
+    final_bitcoin_list = []
     text_content = read_text_from_file('bitcoin_addresses')
     for index in range(0, len(text_content)):
         text_content[index] = text_content[index].rstrip('\n')

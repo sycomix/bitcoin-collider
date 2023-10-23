@@ -27,7 +27,9 @@ def generate_private_wif(private_hex):
 
 def generate_public_address(private_hex):
     public_key = generate_public_key(private_hex)
-    public_key_with_network = '04' + binascii.hexlify(public_key.to_string()).decode()
+    public_key_with_network = (
+        f'04{binascii.hexlify(public_key.to_string()).decode()}'
+    )
     hash160 = ripemd160(hashlib.sha256(binascii.unhexlify(public_key_with_network)).digest()).digest()
     public_address_a = b"\x00" + hash160
     checksum = hashlib.sha256(hashlib.sha256(public_address_a).digest()).digest()[:4]
